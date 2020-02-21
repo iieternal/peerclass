@@ -31,7 +31,7 @@ $card = file_get_contents('../templates/user/card.html');
 $cardpara = array('{{title}}','{{name}}','{{text}}','{{url}}','{{urlText}}');
 $cardout = '';
 //printing values
-$description = $getCourses[0]['description'] ."<br><br>Total lessons added: ".$total_lessons." <br><br> Tags: " . $getCourses[0]['tags'];
+$description = $getCourses[0]['description'] ."<br><br>Total lessons: ".$total_lessons." <br><br> Tags: " . $getCourses[0]['tags'];
 
 $carddata = array($getCourses[0]['category'], $getCourses[0]['name'], $description,"lessons.php?id=".$getCourses[0]['id'],'View Lessons');
 $cardout .= str_replace($cardpara, $carddata, $card);
