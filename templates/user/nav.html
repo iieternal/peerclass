@@ -1,0 +1,33 @@
+
+<body class="app">
+
+    <header class="app-header">
+        <a href="#" class="app-header__logo" style="text-decoration: none;">{{title}}</a>
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"><span
+                class="fa fa-bars"></span></a>
+
+        <ul class="app-nav">
+            <li class="app-search">
+                <form style="margin-top: 10px">
+                <input name="query" id="search-here" class="app-search__input" type="search" placeholder="Search">
+                <button type="submit" class="app-search__button" style="margin-top: 10px" for="search-here"><i class="fa fa-search"></i></button></form>
+            </li>
+            <li class="dropdown">
+                <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Menu">
+                    <i class="fa fa-user fa-lg"></i>
+                </a>
+                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    <li><a class="dropdown-item" href=""><i class="fa fa-cog"></i> Settings</a></li>
+                    <li><a class="dropdown-item" href=""><i class="fa fa-user"></i> Profile</a></li>
+                    <li><a class="dropdown-item" href="/logout.php"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </header>
+    <aside class="app-sidebar">
+        <ul class="app-menu">
+          <!-- <li><a class="app-menu__item" href="#">Index</a></li> -->
+            {{menu}}
+        </ul>
+    </aside>
