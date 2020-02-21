@@ -4,8 +4,12 @@ protect();
 
 if(isset($_POST) && $_SERVER['REQUEST_METHOD'] == "POST")
 {
+	
 	$cid = $_REQUEST['cid'];
-	$id = $_REQUEST['id'];
+	if(isset($_REQUEST['id']))
+		$id = $_REQUEST['id'];
+	else
+		$id = 'assignment';
 
 	$file_name		= strip_tags($_FILES['upload_file']['name']);
 	$file_id 		= strip_tags($_POST['upload_file_ids']);
@@ -48,12 +52,25 @@ if(isset($_POST) && $_SERVER['REQUEST_METHOD'] == "POST")
 	//file upload
 	if(move_uploaded_file(strip_tags($_FILES['upload_file']['tmp_name']), $file_location)){
 		//insert into database
+		if(isset($_REQUEST['id'])){
 	$data		=	array(
 						'loc'=>$cid."/".$id."/".$file_name,
 						'lesson'=>$_REQUEST['id'],
 						'type'=>$filetype
 						);
-	$insert		=	$db->insert('lesson_files',$data);
+//for lesson file uploads
+		$insert		=	$db->insert('lesson_files',$data);
+	}
+//for assignments updates
+		if(isset($_REQUEST['assign'])){
+			$data		=	array(
+						'loc'=>$cid."/".$id."/".$file_name
+						);
+	$where		=	array(
+						'id'=>$cid //assignment id
+						);
+	$update		=	$db->update('assignment_course', $data,$where);
+		}
 		//upload confirmation
 		echo $file_id;
 	}else{

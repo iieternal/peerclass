@@ -62,7 +62,7 @@ for($i=0;$i<count($getAssignLesson); $i++){
 
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');
-$maindata = array('Assignments Due', $cardout, "<br/>".$pagation);
+$maindata = array('Assesments Due', $cardout, "<br/>".$pagation);
 echo str_replace($mainpara, $maindata, $main);
 
 

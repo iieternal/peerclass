@@ -1,16 +1,10 @@
 <?php
-//courses_attending
+//courses
+//lists all courses taken by this teacher
 include_once('../protect.php');
-protect(0);
+protect(1);
 //pre-set variables
-
-//include words limit
-include '../extras/limit/limit.php';
-
 $total_records_per_page = 7;
-
-//query
-//SELECT * FROM `s_courses` LEFT JOIN courses ON courses.id=s_courses.course
 
 //pagation config
 if (isset($_GET['page_no']) && $_GET['page_no']!="") {
@@ -24,16 +18,15 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
     $adjacents = "2";
 
 //sql call for total records
-    $getTotalRecords	=	$db->getRecFrmQry('SELECT count(s_courses.id) as total FROM `s_courses` LEFT JOIN courses ON courses.id=s_courses.course WHERE (student="'.$_SESSION['id'].'") ');
+    $getTotalRecords	=	$db->getQueryCount('courses','id',' AND (teacher="'.$_SESSION['id'].'") ');
     $total_records = $getTotalRecords[0]['total'];
     $total_no_of_pages = ceil($total_records / $total_records_per_page);
     $second_last = $total_no_of_pages - 1;
 
 //load list of all courses added by this teacher
-//Command: ORDER BY dt DESC LIMIT $offset, $total_records_per_page
-    $command = "ORDER BY s_courses.dt DESC LIMIT $offset, $total_records_per_page";
-$getCourses	=	$db->getRecFrmQry('SELECT * FROM `s_courses` LEFT JOIN courses ON courses.id=s_courses.course WHERE (student="'.$_SESSION['id'].'") '.$command);
-
+//Command: ORDER BY date DESC LIMIT $offset, $total_records_per_page
+    $command = "ORDER BY dt DESC LIMIT $offset, $total_records_per_page";
+$getCourses	=	$db->getAllRecords('courses','*',' AND (teacher="'.$_SESSION['id'].'") ', $command);
 //template default for techer
 include 'template_default.php';
 //pagation
@@ -51,14 +44,13 @@ $cardpara = array('{{title}}','{{name}}','{{text}}','{{url}}','{{urlText}}');
 $cardout = '';
 //printing values
 for($i=0;$i<count($getCourses); $i++){
-    $completed = $getCourses[$i]['completed'] ? " (Completed)" : " (Incomplete)";
-$carddata = array($getCourses[$i]['category'], $getCourses[$i]['name'].$completed, limit_word($getCourses[$i]['description'], 150),"course_page.php?id=".$getCourses[$i]['course'],'View');
+$carddata = array($getCourses[$i]['category'], $getCourses[$i]['name'], $getCourses[$i]['description'],"course_page.php?id=".$getCourses[$i]['id'],'View');
 $cardout .= str_replace($cardpara, $carddata, $card);
 }
 
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');
-$maindata = array('Courses Attending', $cardout, "<br/>".$pagation);
+$maindata = array('Courses', $cardout, "<br/>".$pagation);
 echo str_replace($mainpara, $maindata, $main);
 
 

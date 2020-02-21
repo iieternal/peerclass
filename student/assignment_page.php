@@ -1,6 +1,7 @@
 <?php
 //assignmnets
 //lists all assignments taken by this teacher on this lesson
+//assessment
 include_once('../protect.php');
 protect(0);
 //pre-set variables
@@ -104,7 +105,7 @@ $cardout .= str_replace($cardpara, $carddata, $card);
 
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');
-$maindata = array('Assignments added on this lesson', $cardout, '<br><br><a href="lesson_page.php?cid='.$_GET['cid'].'&id='.$id.'" class="btn btn-primary">Go Back</a><br/><br/>'.$pagation);
+$maindata = array('Tests added on this lesson', $cardout, '<br><br><a href="lesson_page.php?cid='.$_GET['cid'].'&id='.$id.'" class="btn btn-primary">Go Back</a><br/><br/>'.$pagation);
 echo str_replace($mainpara, $maindata, $main);
 
 
