@@ -13,7 +13,7 @@ if (isset($_GET['id']) && $_GET['id']!="") {
 $getLesson	=	$db->getAllRecords('lessons','*',' AND (course = "'.$_GET['cid'].'" AND id="'.$id.'") ');
 //find course lessons
 $getTotalRecords	=	$db->getQueryCount('lesson_files','id',' AND (lesson="'.$getLesson[0]['id'].'") ');
-    $total_lessons_files = $getTotalRecords[0]['total'];
+$total_lessons_files = $getTotalRecords[0]['total'];
 //template default for techer
 include 'template_default.php';
 

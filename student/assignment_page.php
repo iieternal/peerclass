@@ -47,7 +47,7 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
 
 //load list of all courses added by this teacher
 //Command: ORDER BY date DESC LIMIT $offset, $total_records_per_page
-    $command = "ORDER BY dt DESC LIMIT $offset, $total_records_per_page";
+    $command = "ORDER BY dt ASC LIMIT $offset, $total_records_per_page";
 $getAssignment	=	$db->getAllRecords('assignment_questions','*',' AND (lesson="'.$id.'") ', $command);
 //template default for techer
 include 'template_default.php';
