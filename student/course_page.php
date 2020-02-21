@@ -3,6 +3,9 @@
 include_once('../protect.php');
 protect(0);
 
+//include words limit
+include '../extras/limit/limit.php';
+
 //check for id
 if (isset($_GET['id']) && $_GET['id']!="") {
     $id = $_GET['id'];

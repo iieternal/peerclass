@@ -1,0 +1,44 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="/assets/css/youtube.css" />
+<div class="container">
+
+        <!-- THE YOUTUBE PLAYER -->
+        <div class="vid-container">
+            <iframe id="vid_frame" src="{{url}}" frameborder="0" width="560" height="315"></iframe>
+        </div>
+
+        <!-- THE PLAYLIST -->
+        <div class="vid-list-container">
+            <div class="vid-list">
+                
+                
+              {{playlist}}
+
+            </div>
+        </div>
+
+        <!-- LEFT AND RIGHT ARROWS -->
+        <div class="arrows">
+            <div class="arrow-left"><i class="fa fa-chevron-left fa-lg"></i></div>
+            <div class="arrow-right"><i class="fa fa-chevron-right fa-lg"></i></div>
+        </div>
+
+    </div>
+
+    <!-- JS FOR SCROLLING THE ROW OF THUMBNAILS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".arrow-right").bind("click", function (event) {
+                event.preventDefault();
+                $(".vid-list-container").stop().animate({
+                    scrollLeft: "+=336"
+                }, 750);
+            });
+            $(".arrow-left").bind("click", function (event) {
+                event.preventDefault();
+                $(".vid-list-container").stop().animate({
+                    scrollLeft: "-=336"
+                }, 750);
+            });
+        });
+    </script>

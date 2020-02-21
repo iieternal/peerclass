@@ -8,11 +8,11 @@ $nav = file_get_contents('../templates/user/nav.html');
 $menu = file_get_contents('../templates/user/menu.html');
 //menu parameters
 $menupara = array('{{href}}', '{{title}}');
-$menudata = array(['courses_attending.php' , "Courses Attending"],
+$menudata = array(['index.php' , "Home"],
+				['courses_attending.php' , "Courses Attending"],
 					['assignments_due.php' , "Assignments Due"],
 					['find_course.php', "Find Courses"],
-					['connect.php', "Connect With Friends"],
-					['my_connections.php', "My Connections"]);
+					);
 $menu_output = '';
 foreach($menudata as $temp_mdata){
 $menu_output .= str_replace($menupara, $temp_mdata, $menu);

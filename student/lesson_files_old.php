@@ -2,7 +2,7 @@
 //lesson files
 //todo
 include_once('../protect.php');
-protect(1);
+protect(0);
 
 //check for id
 if (isset($_GET['id']) && $_GET['id']!="") {

@@ -1,6 +1,6 @@
 <?php
 //survey : phase 2
-include '../templates/materials/form/form.php';
+include '../templates/materials/form2/form.php';
 
 //get data from post
 if(isset($_POST['selectedID'])){
@@ -41,7 +41,7 @@ $data[$i+1] = array('submit', 'Submit');
 $checkbox = form_template($order, $data);
 
 //load main template
-$main = file_get_contents('../templates/main/main.html');
+$main = file_get_contents('../templates/user/main.html');
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');
 $maindata = array('Intrested Field', '', $checkbox);

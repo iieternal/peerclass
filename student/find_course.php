@@ -2,6 +2,9 @@
 //find_course
 include_once('../protect.php');
 protect(0);
+
+//include words limit
+include '../extras/limit/limit.php';
 //pre-set variables
 $total_records_per_page = 7;
 
@@ -54,7 +57,7 @@ $cardpara = array('{{title}}','{{name}}','{{text}}','{{url}}','{{urlText}}');
 $cardout = '';
 //printing values
 for($i=0;$i<count($getCourses); $i++){
-$carddata = array($getCourses[$i]['category'], $getCourses[$i]['name'], $getCourses[$i]['description'],"course_page.php?id=".$getCourses[$i]['id'],'View');
+$carddata = array($getCourses[$i]['category'], $getCourses[$i]['name'], limit_word($getCourses[$i]['description'], 150),"course_page.php?id=".$getCourses[$i]['id'],'View');
 $cardout .= str_replace($cardpara, $carddata, $card);
 }
 

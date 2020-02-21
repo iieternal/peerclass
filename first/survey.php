@@ -32,5 +32,5 @@ else if($_REQUEST['phase'] == 4){
 }
 
 //load footer
-include '../templates/main/footer.html';
+include '../templates/user/footer.html';
 ?>

@@ -1,11 +1,11 @@
 <?php
 //teacher template defaults
-$header = file_get_contents('../templates/main/header.html');
+$header = file_get_contents('../templates/user/header.html');
 //header parameters
 echo str_replace('{{title}}', "Dashboard ~ Student Survey Portal", $header);
 
-$nav = file_get_contents('../templates/main/nav.html');
-$menu = file_get_contents('../templates/main/menu.html');
+$nav = file_get_contents('../templates/user/nav.html');
+$menu = file_get_contents('../templates/user/menu.html');
 //menu parameters
 $menupara = array('{{href}}', '{{title}}');
 $menudata = array(['courses.php' , "My Courses"]);

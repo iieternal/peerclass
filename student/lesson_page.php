@@ -26,7 +26,7 @@ $card = file_get_contents('../templates/user/card.html');
 $cardpara = array('{{title}}','{{name}}','{{text}}','{{url}}','{{urlText}}');
 $cardout = '';
 //printing values
-$description = "<br>Tags:".$getLesson[0]['tags']."<br><br>Total lesson files: ".$total_lessons_files."<br><br> Students: ###<br><br>Assignment: ".($getLesson[0]['assignment']? "Active" : "Inactive");
+$description = "<br>Tags:".$getLesson[0]['tags']."<br><br>Total lesson files: ".$total_lessons_files."<br><br>Assignment: ".($getLesson[0]['assignment']? "Active" : "Inactive");
 $description = $description.'<br><br><a href="lesson_files.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">View Lesson Files</a><br><br>
 	<a href="assignment_page.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Assignments</a><br><br>
 	<a href="comments.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Comments</a>';
