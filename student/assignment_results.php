@@ -52,7 +52,7 @@ for($i=0;$i<count($getAssignLesson); $i++){
     $date = date_create($getAssignLesson[$i]['assignment_due']);
     $complete = date_format($date,'Y/m/d');
 
-	$carddata = array( "Due date: ".$complete,$getAssignLesson[$i]['name'], $getAssignLesson[$i]['description'],"lesson_page.php?cid=".$getAssignLesson[$i]['l_course']."&id=".$getAssignLesson[$i]['l_id'],'View');
+	$carddata = array( "Due date: ".$complete,$getAssignLesson[$i]['name'], $getAssignLesson[$i]['description'],"assessment_report.php?cid=".$getAssignLesson[$i]['l_course']."&id=".$getAssignLesson[$i]['l_id'],'View');
 
 	$cardout .= str_replace($cardpara, $carddata, $card);
 }

@@ -4,4 +4,4 @@ $getCourse = $db->getAllRecords('courses','*',' AND (student = '.$_SESSION['id']
 //finding users with similar insterst
 $getUsers = $db->getRecFrmQry('');
 //finding related courses
-$getRelated ;
+$getRelated;

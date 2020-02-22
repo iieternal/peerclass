@@ -64,23 +64,17 @@ for($i=0;$i<count($getAssignment); $i++){
 //simplifying shuffle w.r.t option value
     //shuffles the answer options each time
 //answer readout
-$answer = "<b>A)</b> <p ".$getAssignment[$i]['answer'.$ans_shuffle[0]];
-$answer .= "<br><b>B)</b> ".$getAssignment[$i]['answer'.$ans_shuffle[1]];
-$answer .= "<br><b>C)</b> ".$getAssignment[$i]['answer'.$ans_shuffle[2]];
-$answer .= "<br><b>D)</b> ".$getAssignment[$i]['answer'.$ans_shuffle[3]];
+$answer = "<p class='alert alert-sucess'> Answer: ".$getAssignment[$i]['answer1']."</p>";
+$getAssignmentAns	=	$db->getAllRecords('s_assign_ans','*',' AND (lesson="'.$id.'" AND assignment = "'.$getAssignment[$i]['id'].'") ');
 
-$data = array(
-    ['POST','assignment_page.php?page_no='.($page_no+1).$get_var],
-    ['Select Answer','','answer_selected',[
-        [1,'A',''],[2,'B',''], [3,'C',''],[4,'D','']]],
-        ['assignment_token', urlencode(serialize($ans_shuffle))],
+if(isset($getAssignmentAns[0]) && $getAssignmentAns[0]['answer'] == 1){
+	$answer .= '<br> You Choose The Correct Answer';
+} else {
+	$answer .= '<br> You Choose The Wrong Answer';
+}
 
-        ['assignment_id', $getAssignment[$i]['id']],
-    ['submit', 'Save & Answer Next Question']);
-$select_ans = form_template($order, $data);
+
 //form is created each time {only once in theory}
-
-$answer .= "<br>".$select_ans;
 $carddata = array('Question: '. ($i+1), $getAssignment[$i]['question'], $answer);
 $cardout .= str_replace($cardpara, $carddata, $card);
 }

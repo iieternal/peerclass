@@ -22,7 +22,7 @@ if(isset($_POST['selectedID'])){
 
 //get all branches from database
 //assuming computer science
-$getType = $db->getAllRecords('courses','*',' AND (branch LIKE "Computer Science") GROUP BY type');
+$getType = $db->getAllRecords('courses','*',' AND (branch LIKE "Computer Science") GROUP BY language');
 
 //start arrays
 $checkbox = '';
