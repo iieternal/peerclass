@@ -50,7 +50,7 @@ $form = form_template($order, $data);
 
 $extra = '<a href="lesson_page.php?cid='.$_REQUEST['cid'].'&id='.$_REQUEST['id'].'" class="btn btn-primary">Go back</a>';
 //main output
-$maindata = array('Add Assignment Question No: '.$question_no, '', $form."<br/>".$extra);
+$maindata = array('Add Assessment Question No: '.$question_no, '', $form."<br/>".$extra);
 echo str_replace($mainpara, $maindata, $main);
 
 //footer

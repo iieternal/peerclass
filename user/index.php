@@ -1,6 +1,6 @@
 <?php
 //profile redirect
-include 'protect.php';
+include '../protect.php';
 protect();
 
 //redirecting user based on their profile id's

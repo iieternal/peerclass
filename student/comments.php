@@ -26,7 +26,7 @@ $comment = str_replace('{{lesson}}', $id, $comment);  //added lesson id
 //go back
 $Btn = '<br><a href="lesson_page.php?cid='.$_GET['cid'].'&id='.$_GET['id'].'" class="btn btn-primary">Go back</a>';
 //end
-$maindata = array('Comments', '', $comment.$Btn);
+$maindata = array('Discussion', '', $comment.$Btn);
 echo str_replace($mainpara, $maindata, $main);
 
 //footer

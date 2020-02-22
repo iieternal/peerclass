@@ -15,7 +15,7 @@ if(isset($getNxtLessons[0]['id'])){
 	$getTotalRecords1	=	$db->getQueryCount('assignment_questions','id',' AND (lesson="'.$getNxtLessons[0]['id'].'") ');
 	$assignmentQuestions = $db->getRecFrmQry('SELECT count(*) as total FROM s_assign_ans WHERE answer = 1 AND lesson = '.$id);
 	if(($assignmentQuestions[0]['total']/$getTotalRecords1[0]['total']) < 0.4 ){
-		header('location: assignments_due.php');
+		header('location: alert.php?alert=To%20skip%20a%20lesson%20you%20need%20to%20pasthe%20tests&type=warning');
 	}
 }
 //load course details added by this teacher
@@ -38,7 +38,7 @@ $cardout = '';
 $description = "<br>Tags:".$getLesson[0]['tags']."<br><br>Total lesson files: ".$total_lessons_files."<br><br>Assignment: ".($getLesson[0]['assignment']? "Active" : "Inactive");
 $description = $description.'<br><br><a href="lesson_files.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">View Lesson Files</a><br><br>
 	<a href="assignment_page.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Assess Yourself</a><br><br>
-	<a href="comments.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Comments</a>';
+	<a href="comments.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Ask a question</a>';
 
 $carddata = array($getLesson[0]['name'], $getLesson[0]['description'], $description,"lessons.php?id=".$getLesson[0]['course'],'Go back');
 $cardout .= str_replace($cardpara, $carddata, $card);

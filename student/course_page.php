@@ -39,7 +39,8 @@ $cardout .= str_replace($cardpara, $carddata, $card);
 if(empty($getStatus[0])){
 	$Btns = '<a href="course_attend.php?action=attend&cid='.$getCourses[0]['id'].'" class="btn btn-primary">Attend this course</a>';
 } else {
-$Btns = '<a href="request_assignment.php?id='.$getCourses[0]['id'].'" class="btn btn-primary">Main Assignment</a><br>  <br>  
+$Btns = '<a href="google_scholar.php?q='.$getCourses[0]['tags'].'" class="btn btn-primary">Related Journals</a><br>  <br>  
+<a href="request_assignment.php?id='.$getCourses[0]['id'].'" class="btn btn-primary">Main Assignment</a><br>  <br>  
 <a href="course_attend.php?action=unattend&cid='.$getCourses[0]['id'].'" class="btn btn-primary">Remove this course</a>
 <br>
 ';

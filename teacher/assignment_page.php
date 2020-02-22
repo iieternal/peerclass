@@ -65,7 +65,7 @@ $cardout .= str_replace($cardpara, $carddata, $card);
 
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');
-$maindata = array('Assignments added on this lesson', $cardout, '<br><br><a href="add_assignment.php?cid='.$_GET['cid'].'&id='.$id.'" class="btn btn-primary">Add Assignment</a><br/><br/>'.$pagation);
+$maindata = array('Assessment questions added on this lesson', $cardout, '<br><br><a href="add_assignment.php?cid='.$_GET['cid'].'&id='.$id.'" class="btn btn-primary">Add Questions</a><br/><br/>'.$pagation);
 echo str_replace($mainpara, $maindata, $main);
 
 
