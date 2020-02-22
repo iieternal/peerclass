@@ -89,7 +89,7 @@ $Btn = '<br><br><a href="comments.php?cid='.$_GET['cid'].'&id='.$_GET['id'].'" c
 $main = file_get_contents('../templates/user/main.html');
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');
-$maindata = array($getLessonDetails[0]['name'], '', $cardout.$Btn);
+$maindata = array('Course >> Lesson >> '.$getLessonDetails[0]['name'], '', $cardout.$Btn);
 echo str_replace($mainpara, $maindata, $main);
 
 //load footer

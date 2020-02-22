@@ -40,7 +40,8 @@ $description = $description.'<br><br><a href="lesson_files.php?cid='.$_GET['cid'
 	<a href="assignment_page.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Assess Yourself</a><br><br>
 	<a href="comments.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Ask a question</a>';
 
-$carddata = array($getLesson[0]['name'], $getLesson[0]['description'], $description,"lessons.php?id=".$getLesson[0]['course'],'Go back');
+//changed lessons to lesson_files on ui update
+$carddata = array($getLesson[0]['description'], $getLesson[0]['name'], $description,"lesson_files.php?cid=".$_GET['cid']."&id=".$getLesson[0]['id'],'Go back');
 $cardout .= str_replace($cardpara, $carddata, $card);
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');

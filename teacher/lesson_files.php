@@ -82,7 +82,7 @@ $cardD2 = array('Reference Links',$reflinks);
 $cardout .= str_replace($cardpara, $cardD2, $card);
 
 //buttons at the end
-$Btn = '<br><br><a href="comments.php?cid='.$_GET['cid'].'&id='.$_GET['id'].'" class="btn btn-primary">Comments</a>
+$Btn = '<br><br><a href="comments.php?cid='.$_GET['cid'].'&id='.$_GET['id'].'" class="btn btn-primary">Discussions</a>
 		<br><br><a href="lesson_page.php?cid='.$_GET['cid'].'&id='.$_GET['id'].'" class="btn btn-primary">Go Back</a>';
 
 

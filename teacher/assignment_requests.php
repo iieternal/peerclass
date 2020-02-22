@@ -50,7 +50,7 @@ for($i=0; $i<count($getAssign);$i++){
 $out .= '<a href="/teacher" class="btn btn-primary">Go Back</a>';
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');
-$maindata = array('Assignment Status', '', $out);
+$maindata = array('Assignment Requests', '', $out);
 echo str_replace($mainpara, $maindata, $main);
 
 

@@ -84,7 +84,7 @@ function get_rss_feed_as_html($feed_url, $max_item_cnt = 10, $show_date = true, 
             $result .= '<div class="feed-description">' . $description;
             $result .= ' <a href="'.$link.'" title="'.$title.'">Continue Reading &raquo;</a>'.'</div>';
         }
-        $result .= '</li>';
+        $result .= '</li><br/>';
     }
     $result .= '</ul>';
     return $result;

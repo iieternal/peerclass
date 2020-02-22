@@ -1,12 +1,42 @@
-    <main class="app-content">
-        <div class="app-title">
-            <h5>{{title}}</h5>
-        </div>
-        <div class="row">
-            
+<main class="app-content">
+        
+    <!-- Design fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
+
+    <!-- Bootstrap core CSS -->
+    <link href="/newsdemo/css/bootstrap.css" rel="stylesheet">
+
+    <!-- FontAwesome Icons core CSS -->
+    <link href="/newsdemo/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/newsdemo/style.css" rel="stylesheet">
+
+    <!-- Responsive styles for this template -->
+    <link href="/newsdemo/css/responsive.css" rel="stylesheet">
+
+    <!-- Colors for this template -->
+    <link href="/newsdemo/css/colors.css" rel="stylesheet">
+
+    <!-- Version Tech CSS for this template -->
+    <link href="/newsdemo/css/version/tech.css" rel="stylesheet">
+
+<section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="blog-top clearfix">
+                                <h4 class="pull-left">{{title}}<a href="#"><i class="fa fa-rss"></i></a></h4>
+                            </div><!-- end blog-top -->
+
+                            <div class="blog-list clearfix">
+        
+                                    
 {{card}}
-
-        </div>
-        {{extras}}
-
+</div><!-- end blog-list -->
+{{extras}}
+                        </div><!-- end page-wrapper -->
+</div></div></div></section>
     </main>
+

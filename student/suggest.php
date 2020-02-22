@@ -43,7 +43,7 @@ $cardout = '';
 //loop the data
 for($i=0; $i<count($getCourses); $i++){
 //put data onto cards
-	$carddata = array($getCourses[$i]['name'],$getCourses[$i]['branch'],limit_word($getCourses[$i]['description'], 150),'course_page.php?id='.$getCourses[$i]['id'],'View');
+	$carddata = array($getCourses[$i]['branch'],$getCourses[$i]['name'],limit_word($getCourses[$i]['description'], 150),'course_page.php?id='.$getCourses[$i]['id'],'View');
 	$cardout .= str_replace($cardpara, $carddata, $card);
 }
 //load main
@@ -51,6 +51,6 @@ for($i=0; $i<count($getCourses); $i++){
 $main = file_get_contents('../templates/user/main.html');
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');
-$maindata = array('Suggested Courses', '', $cardout);
+$maindata = array('Suggested Courses', $cardout, '');
 echo str_replace($mainpara, $maindata, $main);
 

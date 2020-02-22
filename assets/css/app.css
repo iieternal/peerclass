@@ -64,7 +64,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: #ffffff; }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -11486,7 +11486,7 @@ readers do not read off random characters that represent icons */
   min-height: calc(100vh - 50px);
   margin-top: 50px;
   padding: 30px;
-  background-color: #e5e5e5;
+  background-color: #ffffff;
   margin-left: 230px;
   transition: margin-left 0.3s ease; }
   @media (max-width: 767px) {

@@ -37,8 +37,8 @@ $data = array(['#'],
  ['Lesson Name','input','lesson_name','Lesson Name'],
  ['Lesson Description','lesson_description'],
   ['Lesson Tags','lesson_tags'],
-  ['Assignment','','lesson_assignment',[[0,'No'],[1,'Yes']]],
- ['Assignment Due On','input','assignment_due','Select date'],
+  ['Assessment','','lesson_assignment',[[0,'No'],[1,'Yes']]],
+ ['Assessment Due On','input','assignment_due','Select date'],
   ['submit','Add']);
 //before submit button
 $datepicker = file_get_contents('../templates/materials/datepicker/datepicker.html');

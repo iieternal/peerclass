@@ -1,26 +1,10 @@
 <?php
-//assignmnets
-//lists all assignments taken by this teacher on this lesson
-//assessment
+//assessment report
 include_once('../protect.php');
 protect(0);
 //pre-set variables
-$total_records_per_page = 1;
+$total_records_per_page = 10;
 
-//reading the post request
-if(isset($_POST['answer_selected']) && $_POST['answer_selected'] != ''){
-    $clean_token = unserialize(urldecode($_POST['assignment_token']));
-    //$ans_post = array_search( $_POST['answer_selected'], $clean_token) + 1;
-    $ans_post = $clean_token[$_POST['answer_selected']-1];
-    //into database
-    $data       =   array(
-                        'assignment'=>$_POST['assignment_id'],
-                        'answer'=>$ans_post,
-                        'lesson'=>$_GET['id']
-                        );
-    $insert     =   $db->insert('s_assign_ans',$data);
-
-}
 
 //get course id
 if (isset($_GET['id']) && $_GET['id']!="") {
@@ -74,15 +58,13 @@ $cardout = '';
 //importing form v2
 include '../templates/materials/form2/form.php';
 $order = array('select', 'hidden', 'hidden', 'button');
-$ans_shuffle = array('1','2','3','4'); //numbers to shuffle
 
 //printing values
 for($i=0;$i<count($getAssignment); $i++){
 //simplifying shuffle w.r.t option value
     //shuffles the answer options each time
-shuffle($ans_shuffle);
 //answer readout
-$answer = "<b>A)</b> ".$getAssignment[$i]['answer'.$ans_shuffle[0]];
+$answer = "<b>A)</b> <p ".$getAssignment[$i]['answer'.$ans_shuffle[0]];
 $answer .= "<br><b>B)</b> ".$getAssignment[$i]['answer'.$ans_shuffle[1]];
 $answer .= "<br><b>C)</b> ".$getAssignment[$i]['answer'.$ans_shuffle[2]];
 $answer .= "<br><b>D)</b> ".$getAssignment[$i]['answer'.$ans_shuffle[3]];
@@ -111,4 +93,3 @@ echo str_replace($mainpara, $maindata, $main);
 
 //footer
 include '../templates/user/footer.html';
-?>

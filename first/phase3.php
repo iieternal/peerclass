@@ -31,9 +31,10 @@ $data = array();
 $data[0] = array('post','/first/survey.php?phase=3');
 //load form
 for($i = 0; $i < count($getType); $i++){
-	$order[$i] = 'checkbox';
-	$data[$i+1] = array($getType[$i]['language'],'selectedID[]', $getType[$i]['language']);
-
+	if(!in_array($getType[$i]['language'], $data)){
+		$order[$i] = 'checkbox';
+		$data[$i+1] = array($getType[$i]['language'],'selectedID[]', $getType[$i]['language']);
+	}
 }
 $order[$i] = 'button';
 $data[$i+1] = array('submit', 'Submit');
@@ -44,5 +45,5 @@ $checkbox = form_template($order, $data);
 $main = file_get_contents('../templates/user/main.html');
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');
-$maindata = array('Intrested Languages', '', $checkbox);
+$maindata = array('Interested Languages', '', $checkbox);
 echo str_replace($mainpara, $maindata, $main);

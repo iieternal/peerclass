@@ -32,7 +32,7 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
 
 //load list of all courses added by this teacher
 //Command: ORDER BY date DESC LIMIT $offset, $total_records_per_page
-    $command = "ORDER BY dt DESC LIMIT $offset, $total_records_per_page";
+    $command = "ORDER BY dt ASC LIMIT $offset, $total_records_per_page";
 $getLessons	=	$db->getAllRecords('lessons','*',' AND (course="'.$id.'") ', $command);
 //template default for techer
 include 'template_default.php';
@@ -51,7 +51,7 @@ $cardpara = array('{{title}}','{{name}}','{{text}}','{{url}}','{{urlText}}');
 $cardout = '';
 //printing values
 for($i=0;$i<count($getLessons); $i++){
-$carddata = array($getLessons[$i]['name'], '', $getLessons[$i]['description'],"lesson_page.php?cid=".$id."&id=".$getLessons[$i]['id'],'View');
+$carddata = array('', $getLessons[$i]['name'], $getLessons[$i]['description'],"lesson_page.php?cid=".$id."&id=".$getLessons[$i]['id'],'View');
 $cardout .= str_replace($cardpara, $carddata, $card);
 }
 

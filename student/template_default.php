@@ -11,6 +11,7 @@ $menupara = array('{{href}}', '{{title}}');
 $menudata = array(['index.php' , "Home"],
 				['courses_attending.php' , "Courses Attending"],
 					['assignments_due.php' , "Assesments Due"],
+					['assignment_ans.php' , "Assesments Results"],
 					['find_course.php', "Find Courses"],
 					);
 $menu_output = '';

@@ -10,7 +10,7 @@ $total_records_per_page = 7;
 if (isset($_GET['id']) && $_GET['id']!="") {
     $id = $_GET['id'];
     } else {
-        header('Location : courses_attendings.php');
+        header('Location: courses_attendings.php');
         }
 
 //pagation config
@@ -51,13 +51,13 @@ $cardpara = array('{{title}}','{{name}}','{{text}}','{{url}}','{{urlText}}');
 $cardout = '';
 //printing values
 for($i=0;$i<count($getLessons); $i++){
-$carddata = array($getLessons[$i]['name'], '', $getLessons[$i]['description'],"lesson_page.php?cid=".$id."&id=".$getLessons[$i]['id'],'View');
+$carddata = array('', $getLessons[$i]['name'], $getLessons[$i]['description'],"lesson_page.php?cid=".$id."&id=".$getLessons[$i]['id'],'View');
 $cardout .= str_replace($cardpara, $carddata, $card);
 }
 
 //main parameters
 $mainpara = array('{{title}}','{{card}}','{{extras}}');
-$maindata = array('Lessons available on this course', $cardout, '<br><br><a href="course_page.php?id='.$id.'" class="btn btn-primary">Go back</a><br/><br/>'.$pagation);
+$maindata = array('Course >> Lessons', $cardout, '<br><br><a href="course_page.php?id='.$id.'" class="btn btn-primary">Go back</a><br/><br/>'.$pagation);
 echo str_replace($mainpara, $maindata, $main);
 
 

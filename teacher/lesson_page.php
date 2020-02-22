@@ -31,7 +31,7 @@ $description = $description.'<br><br><a href="lesson_files.php?cid='.$_GET['cid'
 	<a href="assignment_page.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Assessment Questions</a><br><br><a href="add_assignment.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Add Assessment Questions</a><br><br>
 	<a href="comments.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Discussions</a>';
 
-$carddata = array($getLesson[0]['name'], $getLesson[0]['description'], $description,"lessons.php?id=".$getLesson[0]['course'],'Go back');
+$carddata = array( $getLesson[0]['description'], $getLesson[0]['name'], $description,"lessons.php?id=".$getLesson[0]['course'],'Go back');
 $cardout .= str_replace($cardpara, $carddata, $card);
 $deleteBtn = '<br><a href="add_lesson_files.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Add Lesson Files</a>  
 <a href="lesson_delete.php?cid='.$_GET['cid'].'&id='.$getLesson[0]['id'].'" class="btn btn-primary">Delete Lesson</a>';
